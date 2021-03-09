@@ -172,5 +172,47 @@ namespace Parcial2_ap1_20180618.BLL
             }
             return lista;
         }
+
+        public static string BuscarRequerimiento(int id)
+        {
+            var contexto = new Contexto();
+            var tiposTareas = new TiposTareas();
+
+            try
+            {
+                tiposTareas = contexto.TiposTareas.Find(id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return tiposTareas.Requerimiento;
+        }
+
+        public static string BuscarTiempo(int id)
+        {
+            var contexto = new Contexto();
+            var tiposTareas = new TiposTareas();
+
+            try
+            {
+                tiposTareas = contexto.TiposTareas.Find(id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return Convert.ToString(tiposTareas.Tiempo);
+        }
     }
 }

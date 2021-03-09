@@ -118,12 +118,29 @@ namespace Parcial2_ap1_20180618.UI.Registros
 
         private void AgregarButton_Click(object sender, EventArgs e)
         {
-             
+            if (RegistrarProyectoDetalleDataGridView.DataSource != null)
+                this.Detalle = (List<ProyectosDetalle>)RegistrarProyectoDetalleDataGridView.DataSource;
+
+            this.Detalle.Add(
+                new ProyectosDetalle(
+                    proyectoDetalleId: 0,
+                    proyectoId: (int)ProyectoIdNumericUpDown.Value,
+                    tipoTareaId: Convert.ToInt32(TiposTareasComboBox.SelectedIndex) + 1,
+                    requerimiento: DescripcionTextBox.Text,
+                    tiempo: Convert.ToInt32(TiempoTextBox.Text)
+                )
+            );
+            CargarGrid();
+            TiposTareasComboBox.Focus();
         }
 
         private void RemoverButton_Click(object sender, EventArgs e)
         {
-         
+            if(RegistrarProyectoDetalleDataGridView.Rows.Count > 0) && RegistrarProyectoDetalleDataGridView.CurrentRow != null)
+            {
+                Detalle.RemoveAt(RegistrarProyectoDetalleDataGridView.CurrentRow.Index);
+                CargarGrid();
+            }
         }
 
         private void NuevoButton_Click(object sender, EventArgs e)
@@ -145,16 +162,46 @@ namespace Parcial2_ap1_20180618.UI.Registros
                 Limpiar();
                 MessageBox.Show("El Proyecto ha sido guardado", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            else
+                MessageBox.Show("Error al guardar proyecto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void EliminarButton_Click(object sender, EventArgs e)
         {
-          
+            int id = (int)ProyectoIdNumericUpDown.Value;
+            ProyectoErrorProvider.Clear();
+
+            if (ProyectosBLL.Eliminar(id))
+            {
+                MessageBox.Show("El Proyecto ha sido eliminado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Limpiar();
+            }
+            else
+                ProyectoErrorProvider.SetError(ProyectoIdNumericUpDown, "Id inexistente");
         }
 
         private void TiposTareasComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+           if(TiposTareasComboBox.SelectedIndex == 0)
+            {
+                RequerimientoTextBox.Text = TiposTareasBLL.BuscarRequerimiento(1);
+                TiempoTextBox.Text = Convert.ToString(TiposTareasBLL.BuscarTiempo(1));
+            }
+            if (TiposTareasComboBox.SelectedIndex == 1)
+            {
+                RequerimientoTextBox.Text = TiposTareasBLL.BuscarRequerimiento(2);
+                TiempoTextBox.Text = Convert.ToString(TiposTareasBLL.BuscarTiempo(2));
+            }
+            if (TiposTareasComboBox.SelectedIndex == 2)
+            {
+                RequerimientoTextBox.Text = TiposTareasBLL.BuscarRequerimiento(3);
+                TiempoTextBox.Text = Convert.ToString(TiposTareasBLL.BuscarTiempo(3));
+            }
+            if (TiposTareasComboBox.SelectedIndex == 3)
+            {
+                RequerimientoTextBox.Text = TiposTareasBLL.BuscarRequerimiento(4);
+                TiempoTextBox.Text = Convert.ToString(TiposTareasBLL.BuscarTiempo(4));
+            }
         }
     }
 }
