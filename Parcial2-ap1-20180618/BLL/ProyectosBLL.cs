@@ -103,13 +103,13 @@ namespace Parcial2_ap1_20180618.BLL
             }
             catch (Exception)
             {
-
                 throw;
             }
             finally
             {
                 contexto.Dispose();
             }
+
             return paso;
         }
 

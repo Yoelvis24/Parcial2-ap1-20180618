@@ -43,7 +43,7 @@ namespace Parcial2_ap1_20180618.UI.Registros
         {
             bool paso = true;
 
-            if(DescripcionTextBox.Text == "")
+            if(DescripcionTextBox.Text == " ")
             {
                 ProyectoErrorProvider.SetError(DescripcionTextBox, "Campo obligatorio");
                 DescripcionTextBox.Focus();
@@ -108,6 +108,13 @@ namespace Parcial2_ap1_20180618.UI.Registros
 
             Limpiar();
             proyectos = ProyectosBLL.Buscar(id);
+
+            if((int)ProyectoIdNumericUpDown.Value == 0)
+            {
+                MessageBox.Show("Proyecto no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if(proyectos != null)
             {
                 LlenaCampos(proyectos);
