@@ -96,7 +96,9 @@ namespace Parcial2_ap1_20180618.UI.Registros
         }
         private void RegistrarProyectos_Load(object sender, EventArgs e)
         {
-          
+            TiposTareasComboBox.DataSource = TiposTareasBLL.GetTiposTareas();
+            TiposTareasComboBox.DisplayMember = "Descripcion";
+            TiposTareasComboBox.ValueMember = "TipoId";
         }
 
         private void BuscarButton_Click(object sender, EventArgs e)
@@ -136,7 +138,7 @@ namespace Parcial2_ap1_20180618.UI.Registros
 
         private void RemoverButton_Click(object sender, EventArgs e)
         {
-            if(RegistrarProyectoDetalleDataGridView.Rows.Count > 0) && RegistrarProyectoDetalleDataGridView.CurrentRow != null)
+            if((RegistrarProyectoDetalleDataGridView.Rows.Count > 0) && RegistrarProyectoDetalleDataGridView.CurrentRow != null)
             {
                 Detalle.RemoveAt(RegistrarProyectoDetalleDataGridView.CurrentRow.Index);
                 CargarGrid();
