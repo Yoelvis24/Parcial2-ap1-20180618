@@ -43,7 +43,7 @@ namespace Parcial2_ap1_20180618.UI.Registros
         {
             bool paso = true;
 
-            if(DescripcionTextBox.Text == " ")
+            if(DescripcionTextBox.Text == "")
             {
                 ProyectoErrorProvider.SetError(DescripcionTextBox, "Campo obligatorio");
                 DescripcionTextBox.Focus();
@@ -109,11 +109,6 @@ namespace Parcial2_ap1_20180618.UI.Registros
             Limpiar();
             proyectos = ProyectosBLL.Buscar(id);
 
-            if((int)ProyectoIdNumericUpDown.Value == 0)
-            {
-                MessageBox.Show("Proyecto no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
             if(proyectos != null)
             {
@@ -135,7 +130,7 @@ namespace Parcial2_ap1_20180618.UI.Registros
                     proyectoDetalleId: 0,
                     proyectoId: (int)ProyectoIdNumericUpDown.Value,
                     tipoTareaId: Convert.ToInt32(TiposTareasComboBox.SelectedIndex) + 1,
-                    requerimiento: DescripcionTextBox.Text,
+                    requerimiento: RequerimientoTextBox.Text,
                     tiempo: Convert.ToInt32(TiempoTextBox.Text)
                 )
             );
@@ -179,6 +174,12 @@ namespace Parcial2_ap1_20180618.UI.Registros
         {
             int id = (int)ProyectoIdNumericUpDown.Value;
             ProyectoErrorProvider.Clear();
+
+            if ((int)ProyectoIdNumericUpDown.Value == 0)
+            {
+                MessageBox.Show("Proyecto no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             if (ProyectosBLL.Eliminar(id))
             {
