@@ -38,7 +38,7 @@ namespace Parcial2_ap1_20180618.UI.Registros
             this.DescripcionTextBox = new System.Windows.Forms.TextBox();
             this.DetalleGroupBox = new System.Windows.Forms.GroupBox();
             this.RemoverButton = new System.Windows.Forms.Button();
-            this.ProyectoDetalleDataGridView = new System.Windows.Forms.DataGridView();
+            this.RegistrarProyectoDetalleDataGridView = new System.Windows.Forms.DataGridView();
             this.TiempoTextBox = new System.Windows.Forms.TextBox();
             this.RequerimientoTextBox = new System.Windows.Forms.TextBox();
             this.TiposTareasComboBox = new System.Windows.Forms.ComboBox();
@@ -55,7 +55,7 @@ namespace Parcial2_ap1_20180618.UI.Registros
             this.ProyectoIdNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.ProyectoErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.DetalleGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ProyectoDetalleDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RegistrarProyectoDetalleDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProyectoIdNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProyectoErrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -106,7 +106,7 @@ namespace Parcial2_ap1_20180618.UI.Registros
             // DetalleGroupBox
             // 
             this.DetalleGroupBox.Controls.Add(this.RemoverButton);
-            this.DetalleGroupBox.Controls.Add(this.ProyectoDetalleDataGridView);
+            this.DetalleGroupBox.Controls.Add(this.RegistrarProyectoDetalleDataGridView);
             this.DetalleGroupBox.Controls.Add(this.TiempoTextBox);
             this.DetalleGroupBox.Controls.Add(this.RequerimientoTextBox);
             this.DetalleGroupBox.Controls.Add(this.TiposTareasComboBox);
@@ -134,15 +134,15 @@ namespace Parcial2_ap1_20180618.UI.Registros
             this.RemoverButton.UseVisualStyleBackColor = true;
             this.RemoverButton.Click += new System.EventHandler(this.RemoverButton_Click);
             // 
-            // ProyectoDetalleDataGridView
+            // RegistrarProyectoDetalleDataGridView
             // 
-            this.ProyectoDetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ProyectoDetalleDataGridView.Location = new System.Drawing.Point(6, 78);
-            this.ProyectoDetalleDataGridView.Name = "ProyectoDetalleDataGridView";
-            this.ProyectoDetalleDataGridView.RowHeadersWidth = 51;
-            this.ProyectoDetalleDataGridView.RowTemplate.Height = 25;
-            this.ProyectoDetalleDataGridView.Size = new System.Drawing.Size(575, 173);
-            this.ProyectoDetalleDataGridView.TabIndex = 7;
+            this.RegistrarProyectoDetalleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RegistrarProyectoDetalleDataGridView.Location = new System.Drawing.Point(6, 78);
+            this.RegistrarProyectoDetalleDataGridView.Name = "RegistrarProyectoDetalleDataGridView";
+            this.RegistrarProyectoDetalleDataGridView.RowHeadersWidth = 51;
+            this.RegistrarProyectoDetalleDataGridView.RowTemplate.Height = 25;
+            this.RegistrarProyectoDetalleDataGridView.Size = new System.Drawing.Size(575, 173);
+            this.RegistrarProyectoDetalleDataGridView.TabIndex = 7;
             // 
             // TiempoTextBox
             // 
@@ -312,7 +312,7 @@ namespace Parcial2_ap1_20180618.UI.Registros
             this.Load += new System.EventHandler(this.RegistrarProyectos_Load);
             this.DetalleGroupBox.ResumeLayout(false);
             this.DetalleGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ProyectoDetalleDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RegistrarProyectoDetalleDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProyectoIdNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProyectoErrorProvider)).EndInit();
             this.ResumeLayout(false);
@@ -329,7 +329,7 @@ namespace Parcial2_ap1_20180618.UI.Registros
         private System.Windows.Forms.TextBox DescripcionTextBox;
         private System.Windows.Forms.GroupBox DetalleGroupBox;
         private System.Windows.Forms.Button RemoverButton;
-        private System.Windows.Forms.DataGridView ProyectoDetalleDataGridView;
+        private System.Windows.Forms.DataGridView RegistrarProyectoDetalleDataGridView;
         private System.Windows.Forms.TextBox TiempoTextBox;
         private System.Windows.Forms.TextBox RequerimientoTextBox;
         private System.Windows.Forms.ComboBox TiposTareasComboBox;
