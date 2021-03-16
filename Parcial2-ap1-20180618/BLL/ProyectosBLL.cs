@@ -67,7 +67,7 @@ namespace Parcial2_ap1_20180618.BLL
                 {
                     contexto.Entry(anterior).State = EntityState.Added;
                 }
-                contexto.Entry(proyectos).State = EntityState.Added;
+                contexto.Entry(proyectos).State = EntityState.Modified;
                 paso = (contexto.SaveChanges() > 0);
             }
             catch (Exception)
@@ -83,7 +83,7 @@ namespace Parcial2_ap1_20180618.BLL
 
         public static bool Guardar(Proyectos proyectos)
         {
-            if (ExisteProyecto(proyectos.Descripcion))
+            if (!ExisteProyecto(proyectos.Descripcion))
                 return Insertar(proyectos);
             else
                 return Modificar(proyectos);

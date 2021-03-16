@@ -33,8 +33,8 @@ namespace Parcial2_ap1_20180618.UI.Registros
             DescripcionTextBox.Clear();
             FechaDateTimePicker.Value = DateTime.Now;
             TiempoTotalListBox.Items.Clear();
-            ProyectoErrorProvider.Clear();
-
+            ProyectoErrorProvider.Clear();           
+            
             this.Detalle = new List<ProyectosDetalle>();
             CargarGrid();
         }
@@ -84,7 +84,7 @@ namespace Parcial2_ap1_20180618.UI.Registros
             FechaDateTimePicker.Value = proyectos.Fecha;
             TiempoTotalListBox.Items.Add(proyectos.TiempoTotal);
 
-            this.Detalle = proyectos.ProyectosDetalle;
+            Detalle = proyectos.ProyectosDetalle;
             CargarGrid();
         }
 
